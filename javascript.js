@@ -1318,8 +1318,8 @@ scene.add(pointLight);*/
 
 var directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1.12);
 directionalLight.castShadow = true;
-directionalLight.shadow.mapSize.width = 256;
-directionalLight.shadow.mapSize.height = 256;
+directionalLight.shadow.mapSize.width = 512;
+directionalLight.shadow.mapSize.height = 512;
 directionalLight.shadow.camera.near = 0.5;  // default
 directionalLight.shadow.camera.far = 500;  // default
 directionalLight.position.set(20, 50, 30);
@@ -1618,6 +1618,15 @@ var gameLoop = function() {
 				}
 			}
 		}
+	}
+	
+	if (body1.position.z < -250) {
+		document.getElementById("message").innerHTML = "<p>YOU SURVIVED</p>"
+					document.getElementById("message").classList.remove("fade");
+					setTimeout( function() {
+        				window.location.reload()
+    				}, 2000);
+					// GAME OVER
 	}
 	
 	for (const [key, value] of Object.entries(lasers)) {
