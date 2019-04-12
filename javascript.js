@@ -1186,7 +1186,6 @@ document.addEventListener("click", function() {
 
 
 var turretts = []
-var destroyedTurrets = []
 var turrettsHits = []
 function addTurretts(n, distance) {
 	//- TURRETS
@@ -1243,10 +1242,6 @@ function spawnEnemyLaser() {
 	position.setFromMatrixPosition(turretts[turrettIndex].matrixWorld);
 	turrettIndex += 1;
 	turrettIndex %= turretts.length
-	
-	if (destroyedTurrets.includes(turrettIndex)) {
-		return;
-	}
 	enemyLaserBase.position.x = position.x;
 	enemyLaserBase.position.y = position.y;
 	enemyLaserBase.position.z = position.z;
@@ -1671,8 +1666,8 @@ var gameLoop = function() {
 					
 					turrettsHits[i] += 1;
 					if (turrettsHits[i] >= 5) {
-						//turretts[i].y = -10;
-						scene.remove(turretts[i]);
+						//scene.remove(turretts[i]);
+						turretts[i].setPosition(0, -10, 0)
 					}
 				}
 			}
