@@ -804,7 +804,27 @@ scene.add(atat3);*/
 	hoofFL_2.rotation.set(0, 0, 0);
 	footFL_2.add(hoofFL_2);
 
-
+	body1_2.castShadow = true;
+body2_2.castShadow = true;
+boneRR1_2.castShadow = true;
+boneRL1_2.castShadow = true;
+boneFR1_2.castShadow = true;
+boneFL1_2.castShadow = true;
+boneRR2_2.castShadow = true;
+boneRL2_2.castShadow = true;
+boneFR2_2.castShadow = true;
+boneFL2_2.castShadow = true;;
+boneRR3_2.castShadow = true;
+boneRL3_2.castShadow = true;
+boneFR3_2.castShadow = true;
+boneFL3_2.castShadow = true;
+hoofRR_2.castShadow = true;
+hoofRL_2.castShadow = true;
+hoofFR_2.castShadow = true;
+hoofFL_2.castShadow = true;
+neck_2.castShadow = true;
+head1_2.castShadow = true;
+head2_2.castShadow = true;
 
 
 
@@ -1278,7 +1298,7 @@ function addTrees(n) {
 	for (var i = 0; i < n; i += 1) {
 		geometry = new THREE.ConeBufferGeometry(0.5, 1.4 + generateRandomNumber(0, 1.4), 4);
 		var tree = new THREE.Mesh(geometry, material);
-		//tree.castShadow = true;
+		tree.castShadow = true;
 		tree.position.set(generateRandomNumber(-150, 150), 0, generateRandomNumber(-150, 150));
 		scene.add(tree);
 	}
@@ -1318,15 +1338,15 @@ scene.add(pointLight);*/
 
 var directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1.12);
 directionalLight.castShadow = true;
-directionalLight.shadow.mapSize.width = 1024;
-directionalLight.shadow.mapSize.height = 1024;
+directionalLight.shadow.mapSize.width = 4096;
+directionalLight.shadow.mapSize.height = 4096;
 directionalLight.shadow.camera.near = 0.5;  // default
 directionalLight.shadow.camera.far = 500;  // default
 directionalLight.position.set(20, 50, 30);
-directionalLight.shadow.camera.bottom = -5;
-directionalLight.shadow.camera.left = -5;
-directionalLight.shadow.camera.top = 5;
-directionalLight.shadow.camera.right = 5;
+directionalLight.shadow.camera.bottom = -25;
+directionalLight.shadow.camera.left = -25;
+directionalLight.shadow.camera.top = 25;
+directionalLight.shadow.camera.right = 25;
 scene.add(directionalLight);
 
 //- MISCELLANEOUS
@@ -1647,6 +1667,7 @@ var gameLoop = function() {
 					turrettsHits[i] += 1;
 					if (turrettsHits[i] >= 5) {
 						scene.remove(turretts[i]);
+						turretts[i] = null;
 					}
 				}
 			}
