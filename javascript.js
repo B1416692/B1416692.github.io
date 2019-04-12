@@ -1667,9 +1667,7 @@ var gameLoop = function() {
 					turrettsHits[i] += 1;
 					if (turrettsHits[i] >= 5) {
 						scene.remove(turretts[i]);
-						turretts[i].position.z = 10000;
-						turretts[i].position.x = 10000;
-						turretts[i].position.y = 10000;
+						turretts[i] = null;
 					}
 				}
 			}
