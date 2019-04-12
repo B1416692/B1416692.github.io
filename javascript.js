@@ -20,7 +20,7 @@ var snowTexture = textureLoader.load("textures/Snow_001_SD/Snow_001_COLOR.jpg");
 snowTexture.wrapS = THREE.RepeatWrapping;
 snowTexture.wrapT = THREE.RepeatWrapping;
 snowTexture.repeat.set(600, 600);
-snowTexture.anisotropy = 2;
+snowTexture.anisotropy = 4;
 var snowBumpMap = textureLoader.load("textures/Snow_001_SD/Snow_001_DISP.png");
 snowBumpMap.wrapS = THREE.RepeatWrapping;
 snowBumpMap.wrapT = THREE.RepeatWrapping;
@@ -1318,8 +1318,8 @@ scene.add(pointLight);*/
 
 var directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1.12);
 directionalLight.castShadow = true;
-directionalLight.shadow.mapSize.width = 512;
-directionalLight.shadow.mapSize.height = 512;
+directionalLight.shadow.mapSize.width = 1024;
+directionalLight.shadow.mapSize.height = 1024;
 directionalLight.shadow.camera.near = 0.5;  // default
 directionalLight.shadow.camera.far = 500;  // default
 directionalLight.position.set(20, 50, 30);
