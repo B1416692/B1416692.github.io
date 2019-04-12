@@ -1611,6 +1611,9 @@ var gameLoop = function() {
 					document.getElementById("message").classList.remove("fade");
 					speed = 0;
 					LASER_SPEED = 0;
+					setTimeout( function() {
+        				window.location.reload()
+    				}, 2000);
 					// GAME OVER
 				}
 			}
