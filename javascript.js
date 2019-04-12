@@ -1662,9 +1662,6 @@ var gameLoop = function() {
 		}
 		
 		for (var i = 0; i < turretts.length; i += 1) {
-			if (destroyedTurrets.includes(i)) {
-				continue;
-			}
 			if (vector.z < turretts[i].position.z + 0.6 && vector.z > turretts[i].position.z - 0.6) {
 				if (vector.x < turretts[i].position.x + 0.6 && vector.x > turretts[i].position.x - 0.6) {
 					console.log("TURRET HIT!");
@@ -1674,7 +1671,7 @@ var gameLoop = function() {
 					
 					turrettsHits[i] += 1;
 					if (turrettsHits[i] >= 5) {
-						turretts[i].y = -10;
+						//turretts[i].y = -10;
 						scene.remove(turretts[i]);
 					}
 				}
